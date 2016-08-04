@@ -2,23 +2,32 @@
 <h3><%= @cocktail.name %></h3>
 <hr>
 <h4>Ingredients</h4>
-
+<br>
+<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-xs" %>
+<br>
+<br>
+<div class="column">
+  <div class="row">
+    <div class="col-xs-4"><strong>Ingredients</strong></div>
+    <div class="col-xs-4"><strong>Doses</strong></div>
+    <div class="col-xs-4"><strong>Actions</strong></div>
+  </div>
+</div>
+<br>
 <% @cocktail.ingredients.each do |ingredient| %>
+<div class="column">
+  <div class="row">
+    <div class="col-xs-4"><%= ingredient.name %></div>
+    <div class="col-xs-4"> <% ingredient.doses.each do |dose| %>
+      <%= dose.description %>
+
+    </div>
+    <div class="col-xs-4"><%= link_to 'Delete', dose, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' %></div>
+  </div>
+</div>
+<% end %>
+<% end %>
+
 <br>
 
-<ul class="list-unstyled">
-
-  <li>
-    <strong>
-      <%= ingredient.name %>
-    </strong>
-    <% ingredient.doses.each do |dose| %>
-    <%= dose.description %>
-    <%= link_to 'Delete', dose, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-  </li>
-  <br>
-    <% end %>
-<% end %>
-</ul>
-<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-xs" %>
 <%= link_to 'Back', root_path %>

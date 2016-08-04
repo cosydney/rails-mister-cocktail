@@ -2,23 +2,38 @@
 
 <p>list of your cocktails for the week end</p>
 
-
+<!--
 <%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-primary btn-xs' %>
-
+-->
 <hr>
+
+
 
 <% @cocktails.each do |cocktail| %>
 
 <div class="column">
   <div class="row">
-  <div class="cocktails">
-    <div class="col-xs-4"> </div>
-    <div class="col-xs-4"> <%= link_to cocktail.name, cocktail_path(cocktail) %></div>
-    <div class="col-xs-4"><%= link_to 'Delete', cocktail, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' %>
-    </div>
+    <div class="cocktails">
+      <div class="col-xs-4"> </div>
+      <div class="col-xs-4"> <strong> <%= link_to cocktail.name, cocktail_path(cocktail) %> </strong></div>
+      <div class="col-xs-4">
+        <%= link_to 'Add dose', new_cocktail_dose_path(cocktail), class: "btn btn-primary btn-xs" %>
+        <%= link_to 'Delete', cocktail, method: :delete, class: 'btn btn-warning btn-xs' %>
+
+      </div>
     </div>
   </div>
-  </div>
+</div>
 
 <% end %>
 <br>
+</div>
+
+<div class="jumbotron">
+  <div class="cocktail_form">
+    <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name, label: 'Add a cocktail',required: false, placeholder: 'Mojito' %>
+    <%= f.button :submit, class: 'btn btn-primary btn-xs' %>
+    <% end %>
+  </div>

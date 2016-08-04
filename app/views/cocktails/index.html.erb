@@ -1,1 +1,16 @@
-index.html.erb
+<p>list of your favorite cocktails</p>
+<hr>
+<% @cocktails.each do |cocktail| %>
+<ul class="list-unstyled">
+  <li>
+    <ul class="list-inline">
+      <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+      <li><%= link_to 'Delete', cocktail, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>  </li>
+      <li></li>
+    </ul>
+  </li>
+</ul>
+<% end %>
+<br>
+
+<%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-primary btn-xs' %>

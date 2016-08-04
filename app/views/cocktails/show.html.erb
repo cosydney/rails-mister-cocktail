@@ -1,1 +1,25 @@
-show.html.erb
+
+<h3><%= @cocktail.name %></h3>
+<hr>
+<h4>Ingredients</h4>
+
+<% @cocktail.ingredients.each do |ingredient| %>
+<br>
+
+<ul class="list-unstyled">
+
+  <li>
+    <strong>
+      <%= ingredient.name %>
+    </strong>
+    <% ingredient.doses.each do |dose| %>
+    <%= dose.description %>
+    <%= link_to 'Delete', dose, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+  </li>
+  <br>
+  <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-xs" %>
+<%= link_to 'Back', root_path %>

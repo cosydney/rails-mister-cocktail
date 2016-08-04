@@ -1,5 +1,5 @@
 class DosesController < ApplicationController
-  before_action :set_dose, only: [:show, :update, :destroy]
+  before_action :set_dose, only: [:update, :destroy]
   before_action :find_cocktails, only: [:new, :create]
 
   def create

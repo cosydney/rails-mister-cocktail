@@ -28,6 +28,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,5 +54,4 @@ group :development do
   gem 'spring'
 end
 
-gem 'rspec-rails', group: [ :test ]
 gem 'rspec-rails', group: [ :test ]

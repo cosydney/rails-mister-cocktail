@@ -1,9 +1,9 @@
+<div class="jumbotron">
+  <div class="cocktail_form">
+    <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name, label: 'Add a cocktail',required: false, placeholder: 'Mojito' %>
 
-<div class="cocktail_form">
-<%= simple_form_for(@cocktail) do |f| %>
-<%= f.error_notification %>
-
-<%= f.input :name %>
-<%= f.button :submit %>
-<% end %>
-</div>
+    <%= f.button :submit, class: 'btn btn-primary btn-xs' %>
+    <% end %>
+  </div>

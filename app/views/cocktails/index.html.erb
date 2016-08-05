@@ -29,11 +29,4 @@
 <br>
 </div>
 
-<div class="jumbotron">
-  <div class="cocktail_form">
-    <%= simple_form_for(@cocktail) do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :name, label: 'Add a cocktail',required: false, placeholder: 'Mojito' %>
-    <%= f.button :submit, class: 'btn btn-primary btn-xs' %>
-    <% end %>
-  </div>
+<%= render 'form' %>

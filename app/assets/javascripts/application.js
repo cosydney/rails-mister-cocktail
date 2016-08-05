@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+// app/assets/javascripts/application.js
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
 //= require_tree .

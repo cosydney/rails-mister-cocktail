@@ -33,8 +33,7 @@ gem 'figaro'
 # image upload with amazon S3
 gem "carrierwave"
 gem "mini_magick"
-gem "fog-aws"
-
+gem 'fog', require: 'fog/aws'
 
 
 # Use ActiveModel has_secure_password

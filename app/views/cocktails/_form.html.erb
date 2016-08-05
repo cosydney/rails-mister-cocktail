@@ -1,13 +1,13 @@
-<div class="jumbotron">
+
   <div class="cocktail_form">
     <%= simple_form_for(@cocktail) do |f| %>
     <%= f.error_notification %>
-    <%= f.input :name, label: 'Add a cocktail',required: false, placeholder: 'Mojito' %>
+    <%= f.input :name, label: false,required: false, placeholder: 'My new cocktail' %>
     <!-- photo uploader -->
 
-    <%= f.input :photo %>
+    <%= f.input :photo, class: 'btn btn-primary btn-xs' %>
     <%= f.input :photo_cache, as: :hidden %>
 
-    <%= f.button :submit, class: 'btn btn-primary btn-xs' %>
+    <%= f.button :submit, class: 'btn btn-yours' %>
     <% end %>
   </div>

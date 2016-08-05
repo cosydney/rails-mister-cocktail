@@ -2,6 +2,7 @@
 <h3><%= @cocktail.name %></h3>
 <hr>
 <h4>Ingredients</h4>
+<%= image_tag @cocktail.photo.url(:standard) %>
 <br>
 <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-xs" %>
 <br>
@@ -22,7 +23,11 @@
       <%= dose.description %>
 
     </div>
+
+
+
     <div class="col-xs-4"><%= link_to 'Delete', dose, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' %></div>
+
   </div>
 </div>
 <% end %>

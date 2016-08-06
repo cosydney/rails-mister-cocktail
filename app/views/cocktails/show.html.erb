@@ -1,38 +1,51 @@
-
-<h3><%= @cocktail.name %></h3>
-<hr>
-<h4>Ingredients</h4>
-<%= image_tag @cocktail.photo.url(:standard) %>
-<br>
-<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-xs" %>
-<br>
-<br>
-<div class="column">
-  <div class="row">
-    <div class="col-xs-4"><strong>Ingredients</strong></div>
-    <div class="col-xs-4"><strong>Doses</strong></div>
-    <div class="col-xs-4"><strong>Actions</strong></div>
+ <div class="banner" id="cocktail-show" style="background-image: linear-gradient(-225deg, rgba(128, 16, 136, 0.55) 0%, rgba(14, 0, 61, 0.6) 50%), url(<%= image_path 'cocktails.jpg'%>);">
+  <div class="text-center banner-content">
+    <h1><%= @cocktail.name %></h1>
+    <p><strong> Tips and Ingredients..</strong></p>
   </div>
 </div>
-<br>
-<% @cocktail.ingredients.each do |ingredient| %>
-<div class="column">
-  <div class="row">
-    <div class="col-xs-4"><%= ingredient.name %></div>
-    <div class="col-xs-4"> <% ingredient.doses.each do |dose| %>
-      <%= dose.description %>
 
+<div class="padded">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 ">
+    <!-- go back -->
+<div>
+    <%= link_to root_path do %>
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <% end %>
+</div>
+    <!-- Cocktail image -->
+      <%= image_tag @cocktail.photo.url(:standard) %>
     </div>
+    <div class="col-xs-12 col-md-6 ">
+      <div class="column">
+        <div class="row">
+          <div class="col-xs-4"><strong>Ingredients</strong></div>
+          <div class="col-xs-4"><strong>Doses</strong></div>
+          <div class="col-xs-4"><strong>Actions</strong></div>
+        </div>
+      </div>
+      <br>
+      <% @cocktail.ingredients.each do |ingredient| %>
+      <div class="column">
+        <div class="row">
+          <div class="col-xs-4"><%= ingredient.name %></div>
+          <div class="col-xs-4"> <% ingredient.doses.each do |dose| %>
+            <%= dose.description %>
+          </div>
+          <div class="col-xs-4"><%= link_to 'Delete', dose, method: :delete, class: 'btn btn-delete' %></div>
 
-
-
-    <div class="col-xs-4"><%= link_to 'Delete', dose, method: :delete, data:{ confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' %></div>
-
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+<br>
+<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-yours" %>
+<br>
+      <br>
+    </div>
   </div>
 </div>
-<% end %>
-<% end %>
-
 <br>
-
-<%= link_to 'Back', root_path %>
+</div>

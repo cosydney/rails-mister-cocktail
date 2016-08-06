@@ -11,8 +11,10 @@
 // Your CSS
 @import "layout/index";
 @import "components/index";
-@import "components/*";
+@import "components/banner";
+@import "components/btn";
 @import "pages/index";
+@import "pages/show";
 @import "vendor/index";
 @import "cocktails";
 @import "layout";
